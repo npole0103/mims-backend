@@ -14,6 +14,23 @@ Medical Information Monitoring Service - Backend
 
 #### 역할
 - 백엔드 개발
+    - 셀레니움 데이터 PoC
+    - DB 및 API 설계(공통)
+    - 태그 모니터링 Controller/Service/Repository/QueryDSL
+    - 모니터링 리시버 Controller/Service/Repository/QueryDSL
+    - 대시보드 API 코드 작성
+    - 변화되는 글 체크 알고리즘 설계
+    - 스케줄러 아이디어
+    - 유틸 클래스 코드 작성
+    - 테스트 코드 작성
+    - 프로그램 동작 로직 설계
+- 프론트 개발
+    - 공통 컴포넌트 코드 작성
+    - 유저 전체 조회 페이지 및 컴포넌트 코드 작성
+    - 세부 유저 조회 페이지 및 컴포넌트 코드 작성
+    - 유저 검색 포멧 구현
+    - 모니터링 아이템 세부 페이지 및 컴포넌트 코드 작성
+- PPT 및 가이드라인 제작
 
 #### 느낀점
 - 테스트 코드 중요성 -> 데이터 PoC
