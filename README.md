@@ -52,17 +52,17 @@ Frontend
 
 ### 이슈 및 트러블 슈팅
 
-1. URL 리다이렉션이 안되는 웹페이지
+**1. URL 리다이렉션이 안되는 웹페이지**
     1. HttpClient로 GET, POST 요청 직접 하는 방법
     2. 셀레니움에서 XPath 경로를 입력받아 순차 접속 하는 방법
 
-2. 스케줄링, 모니터링 아이템에 따른 일정 주기로 크롤링 후 알림 기능
+**2. 스케줄링, 모니터링 아이템에 따른 일정 주기로 크롤링 후 알림 기능**
 - Springframework ThreadPoolTaskScheduler 사용
 
-3. Service 처리 로직
+**3. Service 처리 로직**
 - boilerplate 참고 + 비지니스 로직은 서비스 단에서 처리
 
-4. 파일 및 폴더구조
+**4. 파일 및 폴더구조**
 ```
 - business
     - service
@@ -83,35 +83,34 @@ Frontend
 - utils
 ```
 
-5. N:M 관계의 DB 모델 구조에서 Entity 내에 상속까지 쓰는 경우. 조회할 테이블을 알 수 없는 상황 MonitoringReceiver와 MonitoringItem이 ManyToOne / OneToMany로 연결되어 있는 상황에서
-상속 받은 각 3개의 테이블을 N:M으로 매핑 불가. 모니터링 아이템 아이디를 3개를 만들어주던지, 모니터링 리시버를 3개를 만들어주던지 해야함.
+**5. N:M 관계의 DB 모델 구조에서 Entity 내에 상속까지 쓰는 경우. 조회할 테이블을 알 수 없는 상황 MonitoringReceiver와 MonitoringItem이 ManyToOne / OneToMany로 연결되어 있는 상황에서 상속 받은 각 3개의 테이블을 N:M으로 매핑 불가. 모니터링 아이템 아이디를 3개를 만들어주던지, 모니터링 리시버를 3개를 만들어주던지 해야함**
 - Spring 상속 전략으로 Single Table 전략 사용. 각 아이템에 대한 3개의 테이블을 싱글 테이블로 관리.
 
-6. 추후 다른 사이트를 추가하더라도 무리 없게 공통적인 데이터에 한에 추출
+**6. 추후 다른 사이트를 추가하더라도 무리 없게 공통적인 데이터에 한에 추출**
     - 크게 3가지로 분류
     1. HTML Tag 분석
     2. Json Api 분석
     3. Content 분석
 
-7. 모니터링 아이템 비교 알고리즘에 List 형태의 Post 데이터를 Map으로 치환하여 key 검색
+**7. 모니터링 아이템 비교 알고리즘에 List 형태의 Post 데이터를 Map으로 치환하여 key 검색**
 - Map으로 치환하여 find(containsKey) 할 때 O(1)의 시간복잡도
 
-8. deleteAll 메소드 쿼리 30번 vs deleteAllInBatch 메소드 쿼리문 1개 성능 최적화
+**8. deleteAll 메소드 쿼리 30번 vs deleteAllInBatch 메소드 쿼리문 1개 성능 최적화**
 - deleteAll 쿼리문 대신 deleteAllInBatch 사용하여 쿼리 최적화
 
-9. 메소드 분리 전략. 비지니스 로직 공통 부분 리펙토링 진행
+**9. 메소드 분리 전략. 비지니스 로직 공통 부분 리펙토링 진행**
 - 테스트 케이스 작성 후 공통으로 사용되는 로직을 메소드화 하여 재사용
 
-10. check 로직 내부의 sendMessage()를 MessageDto를 생성해 메소드 분리
+**10. check 로직 내부의 sendMessage()를 MessageDto를 생성해 메소드 분리**
 - check 메소드와 send 메소드 2개로 분리
 - check 메소드는 순수하게 새로운/수정된 글만 체킹
 - send 메소드는 check에서 도출된 MessageDto를 기반으로 슬랙 메시지 전송
 
-11. 테스트 코드 작성 시 Transactional + RollBack DB 저장 이슈
+**11. 테스트 코드 작성 시 Transactional + RollBack DB 저장 이슈**
 - 테스트 코드는 Transactional이 붙어있어도 테스트 완료 직후 RollBack 되어 실제로는 저장되지 않음.
 - `@Rollback(false)` 어노테이션을 사용하여 이를 해결
 
-12. 유틸 클래스 vs 서비스 클래스
+**12. 유틸 클래스 vs 서비스 클래스**
 - https://hamryt.tistory.com/2
 - https://mygumi.tistory.com/253
 
